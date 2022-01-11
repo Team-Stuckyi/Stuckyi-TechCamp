@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .card {
+                border: 1px solid black;
+                margin: 5px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h3>가격을 입력 하세요</h3>
+            <p>입력한 값 이상의 데이터만 출력됩니다.</p>
+            <input id="input" />
+            <input type="checkbox" name="sales" value="salePer" /> 할인율
+            <input type="checkbox" name="sales" value="salePrice" /> 할인가
+            <button id="btn">조회</button>
+            <div id="app"></div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function graphqlRequest(price, params) {
+                const url = `http://localhost:4000/`;
+                const query =
+                    `
+                query {
+                    product(price: ` +
+                    price +
+                    `) {
+                      title
+                      price
+                        ` +
+                    params +
+                    `
+                      star
+                      starNum
+                    }
+                  }
+                `;
+                (async () => {
+                    let result = null;
+
+                    try {
+                        const res = await axios.post(url, { query });
+                        result = res.data;
+                    } catch (error) {
+                        const errorMsg = `[ ${error.res.status} ]` + error.res.statusText;
+                        console.log(errorMsg);
+                        return;
+                    }
+
+                    const arr = result.data.product;
+                    let printHTML = "";
+                    arr.forEach((e) => {
+                        let stars = parseInt(e.star);
+                        let star = "";
+                        for (let i = 0; i < stars; i++) {
+                            star += "⭐";
+                        }
+                        printHTML += `
+                        <div class="card">
+                        <p>제품명 : ${e.title}</p>
+                        <p>가격 : ${e.price}</p>
+                        <p>할인율 : ${e.salePer}</p>
+                        <p>할인가 : ${e.salePrice}</p>
+                        <p>${star} (${e.starNum})</p>
+                        </div>
+                        `;
+                    });
+
+                    $("#app").innerHTML = printHTML;
+                })();
+            }
+
+            // selector 가져오기
+            const $ = (selector) => document.querySelector(selector);
+
+            // 버튼 클릭시 값 가져오기
+            $("#btn").addEventListener("click", () => {
+                // 입력된 값 가져오기
+                const price = parseInt($("#input").value);
+
+                if (typeof price === "number" && price > 0) {
+                    // 타입이 숫자일 경우에만 실행
+                    let params = "";
+                    // 체크한 라디오박스의 종류만 데이터 요청하기
+                    for (var i = 0; i < 2; i++) {
+                        if (document.getElementsByName("sales")[i].checked == true) {
+                            params += document.getElementsByName("sales")[i].value + "\n";
+                        }
+                    }
+
+                    graphqlRequest(price, params);
+                } else {
+                    $("#app").innerHTML = "숫자만 입력 가능합니다.";
+                }
+            });
+        </script>
+    </body>
+</html>
