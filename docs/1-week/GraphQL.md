@@ -7,6 +7,12 @@
 ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=GraphQL&logoColor=white)
 ![ApolloGraphQL](https://img.shields.io/badge/ApolloGraphQL-311C87?style=for-the-badge&logo=ApolloGraphQL&logoColor=white)
 
+### Reference
+
+[Grapyql](https://graphql.org/)
+
+[Grapyql-kr](https://graphql-kr.github.io/)
+
 <br>
 
 ## GraphQL이란?
@@ -115,10 +121,12 @@ GraphQL은 API에 있는 데이터에 대한 완벽하고 이해하기 쉬운 �
     원하는 데이터를 작성해서 요청하고 받을 수 있다.
 
 -   mutation
+
     뮤테이션은 쿼리와 다른 것은 없지만 RESTAPI에서 CRUD중 CUD에 해당한다. <br>
     데이터의 추가, 수정, 삭제 요청을 할 수 있다.
 
 -   schema
+
     객체 type을 정의해 두는 부분이다.
 
     ```js
@@ -199,6 +207,7 @@ app.listen(4000, () => console.log("Now browse to localhost:4000/graphql"));
 <code>root</code>에 있는 hello를 Query로 날리게 되면 "Hello world!"를 <code>schema</code>에 정의된 Query의 타입으로 값을 반환 해준다.
 
 -   GraphQL playground로 결과 확인
+
     ![app1](./GraphQL-expample/img/graphQL-express-app1.png)
 
 graphQL은 반환할 데이터의 구조를 미리 <code>schema</code>에 type을 정의를 해주어야 한다.<br>
