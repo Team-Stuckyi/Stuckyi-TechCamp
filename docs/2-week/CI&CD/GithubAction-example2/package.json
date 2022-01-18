@@ -1,0 +1,8 @@
+{
+    "devDependencies": {
+        "mocha": "^9.1.4"
+    },
+    "scripts": {
+        "test": "mocha index.spec.js"
+    }
+}
