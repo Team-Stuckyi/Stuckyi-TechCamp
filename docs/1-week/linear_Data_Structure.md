@@ -1,6 +1,6 @@
 # 자료구조 (Linear_data_Structure)
 
-#### 작성자 : [전찬민]
+#### 작성자 : [전찬민](https://github.com/cksals3753)
 
 # 자료구조란? 
 
@@ -18,6 +18,7 @@
 * 참고자료: [Github](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/DataStructure#personal-recommendation-1)
 * 참고영상: [Youtube](https://www.youtube.com/watch?v=xnURecIJk4g)
 <br>
+
 ## Array 
 * 가장 기본적인 자료구조인 Array는 논리적 저장순서와 물리적 저장순서가 일치한다
 따라서 index로 해당원소에 접근할 수 있다. 그렇기 때문에 찾고자 하는 원소의 
@@ -39,17 +40,20 @@ let arr[10] = {1,2,3,4,5,6,7,8,9,0}; 이라는 배열을 `새로` 생성해야�
 ![Array-Plus](img/Array-Plus.jpg)
 # 배열의 한계
 * 1) 중간에 데이터를 저장하고 싶을경우
+
 1, 3, 4, 5 => 1과3사이에 2를 저장하고 싶을경우 해야하는 방법
 -> 1, 2, 3, 4, 5  3,4,5를 한 칸씩 뒤로 밀어야 한다. 비효율적으로 동작한다.
 
 ![Array-Plus2](img/Array-Plus2.jpg)
 <br>
 * 2) 중간에 데이터를 삭제하고 싶은 경우
+  
 1, 2, 2, 3, 4 => 2를 삭제하고 싶을때 해야하는 방법
 ->  1, 2, 3, 4 중간에 있는 2를 없애기 위해선 뒤에 있는 2, 3, 4를 차례대로 덮어씌워야 한다.
 
 ![Array-Delete](img/Array-Delete.jpg)
 <br>
+
 ## 연결리스트 (Linked List)
 * 이러한 한계점을 해결하기 위한 자료구조가 linked list이다. 각각의 원소들은 자기 자신 다음에 어떤 원소인지만을 기억하고 있다. 따라서 이 부분만 다른값으로 바꿔주면 삭제와 삽입을 큰 시간 안들이고 해결할 수 있는것이다. 
 
@@ -103,10 +107,12 @@ class LinkedList{
 # 원형 연결리스트
 처음에 소개한 기본 연결리스트는 마지막 노드를 조회하려면 Next를 타고타고 가야 했었는데
 이 방식이 비효율적이라 개선을 한게 원형 연결리스트이다.
+<br>
 원형연결리스트는 뭐를 바라보든 마지막 노드의 Next를 처음 노드를 바라보게 한다.
 그리고 또 하나 Head대신에 마지막노드인 tail을 기억한다.
 이렇게 마지막 데이터가 필요하면 Tail를 살펴보면 되고,
 첫번째 데이터가 필요하면 Tail의 Next를 확인하면 된다.
+<br>
 간단한 데이터로 처음과 마지막을 쉽게 가져올 수 있게 되었다.
 ```java
 CircularLinkedList{
