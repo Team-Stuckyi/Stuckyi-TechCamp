@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>댓글 샘플</h1>
+    <div">
+        <input id="nickname" type="text" placeholder="닉네임" style="width: 60px;"/>
+        <input id="comment" type="text" placeholder="내용"/>
+        <button id="writeBtn">댓글 작성</button>
+    </div>
+    <div id="comment-container">
+        <p>노희재: 안녕하세요!</p>
+        <p>전찬민: 아무말이나 써봤어요.</p>
+        <p>이슬기: 네 반갑습니다~</p>
+        <p>이병민: 저도 반갑습니다</p>
+    </div>
+    <script>
+        const writeBtn = document.getElementById('writeBtn');
+        writeBtn.addEventListener('click', e => {
+            const nickname = document.getElementById("nickname").value;
+            const comment = document.getElementById("comment").value;
+            const commentContainer = document.getElementById("comment-container");
+            const resHTML = `<p>${nickname}: ${comment}</p>`;
+
+            commentContainer.innerHTML += resHTML;
+        })
+    </script>
+</body>
+</html>

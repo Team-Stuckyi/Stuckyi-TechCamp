@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>게시판 글쓰기</h1>
+    <div">
+        <input id="nickname" type="text" placeholder="닉네임" required style="width: 60px;"/>
+        <input id="comment" type="text" placeholder="내용" required />
+        <button id="writeBtn">글 작성</button>
+    </div>
+    <div id="comment-container"><!-- Axios로 동적 추가 --></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      // comment-container 초기화
+      const commentContainer = document.getElementById("comment-container");
+      axios.get("http://127.0.0.1/getcomment").then((response) => {
+        commentContainer.innerHTML = response.data;
+      })
+
+      const writeBtn = document.getElementById('writeBtn');
+      writeBtn.addEventListener('click', e => {
+          const nickname = document.getElementById("nickname").value;
+          const comment = document.getElementById("comment").value;
+          
+          axios.get(`http://127.0.0.1/addcomment?nickname=${nickname}&comment=${comment}`);
+          axios.get("http://127.0.0.1/getcomment").then((response) => {
+            commentContainer.innerHTML = response.data;
+          })
+      })
+  </script>
+  </body>
+</html>
