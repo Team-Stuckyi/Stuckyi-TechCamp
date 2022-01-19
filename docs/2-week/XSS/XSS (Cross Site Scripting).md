@@ -17,9 +17,9 @@ sample 디렉토리에 간단한 node.js 백엔드 서버를 생성한 후 진�
 ### 2.1 단순 HTML 문법을 사용한 공격 예시
 
 1. `<h1>Hello, world</h1>`라는 일반적인 HTML `<h1>`태그를 사용하여 댓글을 작성했을 때 
-   ![exam1](img\exam1.png)
+   ![exam1](img/exam1.png)
 2. `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" />`라는 이미지 삽입 태그인`<img>`를 사용하여 댓글을 작성하였을 때
-   ![exam2](img\exam2.png)
+   ![exam2](img/exam2.png)
 
 이런식으로 기본적인 HTML태그를 삽입하는것만으로도 사이트에 문제 될만한 행위가 가능합니다.
 
@@ -28,19 +28,19 @@ sample 디렉토리에 간단한 node.js 백엔드 서버를 생성한 후 진�
 기본적인 HTML태그를 삽입하는 XSS의 경우 보편적으로는 사이트의 흐름이나 레이아웃을 깨뜨리는것에서 그치지만 악의적인 스크립트가 삽입되었을 경우에는 중대한 보안 문제가 발생할 수 있습니다.
 
 1. `alert()`함수를 이용한 alert창 발생시키기
-   ![exam3](D:\Documents\GitHub\Stuckyi-TechCamp\docs\2-week\XSS\img\exam3.png)
+   ![exam3](img/exam3.png)
 
 2. 사이트를 이동시키는 XSS 스크립트
 
    `location.href="https://naver.com"`스크립트를 삽입해 네이버로 강제 이동된 모습
-   ![exam4](D:\Documents\GitHub\Stuckyi-TechCamp\docs\2-week\XSS\img\exam4.png)
+   ![exam4](img/exam4.png)
 
 ## 3. XSS 공격 유형
 
 방금 알아본 XSS 공격기법은은 크게 두가지 종류로 나눌 수 있습니다.
 
 1. Reflected XSS
-   ![ReflectedXSS](img\ReflectedXSS.png)
+   ![ReflectedXSS](img/ReflectedXSS.png)
 
    
 
@@ -58,7 +58,7 @@ sample 디렉토리에 간단한 node.js 백엔드 서버를 생성한 후 진�
    
 
 2. Stored XSS
-   ![storedXSS](img\storedXSS.png)
+   ![storedXSS](img/storedXSS.png)
 
 가장 널리 자주 사용되는 XSS 기법이며 공격 순서는 다음과 같습니다.
 
