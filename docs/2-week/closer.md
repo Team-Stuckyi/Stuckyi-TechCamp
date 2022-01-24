@@ -20,16 +20,16 @@
 - 렉시컬 환경에 대해 이해했다면, 렉시컬 스코프를 알아보자.
 - 자바스크립트 엔진은 함수를 어디에서 호출했는지가 아니라 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프라고 한다.
 
-  ```
+  ```js
   const x = 1;
 
-  function foo(){
-      const x = 10;
-      bar();
+  function foo() {
+    const x = 10;
+    bar();
   }
 
-  function bar(){
-      console.log(x);
+  function bar() {
+    console.log(x);
   }
 
   foo();
@@ -49,13 +49,15 @@
 - 클로저 : 외부 함수보다 중첩 함수가 더 오래 유지되는 경우 중첩 함수는 이미 생명 주기가 종료된 외부 함수의 변수를 참조할 수 있다. 이러한 중첩 함수를 <strong>클로저</strong>라고 한다.
 - 글자로 보면 이해하기 힘드니, 예제를 보고 알아보자.
 
-  ```
-  const name = '코난';
+  ```js
+  const name = "코난";
 
   //1
-  function outer(){
-    const name = '모카';
-    const inner = function () { console.log(name); }; //2
+  function outer() {
+    const name = "모카";
+    const inner = function () {
+      console.log(name);
+    }; //2
     return inner;
   }
 
@@ -81,7 +83,7 @@
 - 자바스크립트의 모든 함수는 상위 스코프를 기억하므로 이론적으로 모든 함수는 클로저다. 하지만 일반적으로 모든 함수를 클로저라고 하지 않는다.
 - 클로저는 중첩 함수가 상위 스코프의 식별자를 참조하고 있고, 중첩 함수가 외부 함수보다 더 오래 유지되는 경우에 한정하는 것이 일반적이다.
 
-  ```
+  ```js
   function home() {
     const conan = "첫째";
     const mocha = "둘째";
@@ -106,25 +108,25 @@
 
   1. 어떠한 함수도 참조하지 않는 함수는 클로저가 아니다.
 
-     ```
-      function stuckyi(){
-        const teamOne = '희재';
-        const teamTwo = '병민';
+     ```js
+     function stuckyi() {
+       const teamOne = "희재";
+       const teamTwo = "병민";
 
-        function cheerUp(){
-          const teamThree = '우영';
+       function cheerUp() {
+         const teamThree = "우영";
 
-          debugger;
+         debugger;
 
-          //상위스코프의 식별자를 참조하지 않는다.
-          console.log(teamThree);
-        }
+         //상위스코프의 식별자를 참조하지 않는다.
+         console.log(teamThree);
+       }
 
-        return cheerUp;
-      }
+       return cheerUp;
+     }
 
-      const cheerUp = stuckyi();
-      cheerUP();
+     const cheerUp = stuckyi();
+     cheerUP();
      ```
 
      ![디버그1](Closerimg/debug1.png)
@@ -135,7 +137,7 @@
 
   2. 외부함수보다 생명주기가 짧은 중첩함수는 일반적인 클로저가 아니다.
 
-     ```
+     ```js
      function team() {
        const teamOne = "찬민";
 
@@ -169,36 +171,34 @@
   - num 변수의 값은 increase 함수만이 변경할 수 있어야 한다.
   - 카운트 상태가 전역 변수를 통해 관리되고 있기 때문에 언제든지 누구나 접근할 수 있고 변경할 수 있기 때문이다.
 
-    ```
+    ```js
     let num = 0;
 
-    const increase = function(){
+    const increase = function () {
       return ++num;
     };
 
     console.log(increase()); //1
     console.log(increase()); //2
     console.log(increase()); //3
-
     ```
 
 - 클로저의 사용 이유를 알게 되었다면, 클로저를 활용한 코드를 확인해보자.
 
-  ```
+  ```js
   const increase = (function () {
-  let num = 0;
+    let num = 0;
 
-  //클로저
-  return function () {
-    //카운트 상태를 1만큼 증가시킨다.
-    return ++num;
-  };
+    //클로저
+    return function () {
+      //카운트 상태를 1만큼 증가시킨다.
+      return ++num;
+    };
   })();
 
-  console.log(increase());  //1
-  console.log(increase());  //2
-  console.log(increase());  //3
-
+  console.log(increase()); //1
+  console.log(increase()); //2
+  console.log(increase()); //3
   ```
 
   - 카운트 상태를 안전하게 변경하고 유지하기 위해 num을 지역변수로 변경했다.
@@ -215,45 +215,45 @@
 - 자바스크립트의 객체의 모든 프로퍼티와 메서드는 기본적으로 외부에 공개되어 있다.
 - 그렇다면 자바스크립트는 정보은닉을 완벽히 지원할 수 있을까?
 
-  ```
+  ```js
   const Stuckyi = (function () {
-  let _age = 0; //private
+    let _age = 0; //private
 
-  function Stuckyi(name, age) {
-    this.name = name; //public
-    _age = age;
-  }
+    function Stuckyi(name, age) {
+      this.name = name; //public
+      _age = age;
+    }
 
-  //프로토타입 메서드
-  Stuckyi.prototype.sayHi = function () {
-    console.log(`안녕, ${this.name}! 넌 이제 ${_age}살이야~^^`);
-  };
+    //프로토타입 메서드
+    Stuckyi.prototype.sayHi = function () {
+      console.log(`안녕, ${this.name}! 넌 이제 ${_age}살이야~^^`);
+    };
 
-  return Stuckyi;
+    return Stuckyi;
   })();
 
   const byeongmin = new Stuckyi("병민", 30);
-  byeongmin.sayHi();                              //안녕, 병민! 넌 이제 30살이야~^^**
-  console.log(byeongmin.name);                    //병민
-  console.log(byeongmin.age);                     //undefined
+  byeongmin.sayHi(); //안녕, 병민! 넌 이제 30살이야~^^**
+  console.log(byeongmin.name); //병민
+  console.log(byeongmin.age); //undefined
 
   const heeejj = new Stuckyi("희재", 30);
-  heeejj.sayHi();                                 //안녕, 희재! 넌 이제 30살이야~^^
-  console.log(heeejj.name);                       //희재
-  console.log(heeejj.age);                        //30
+  heeejj.sayHi(); //안녕, 희재! 넌 이제 30살이야~^^
+  console.log(heeejj.name); //희재
+  console.log(heeejj.age); //30
   ```
 
   - 위의 예제를 보면, 자바스크립트에서도 정보은닉이 가능한 것처럼 보인다. 즉시 실행 함수가 반환하는 Stuckyi 생성자 함수와 Stuckyi 생성자 함수의 인스턴스가 상속받아 호출할 Stuckyi.prototype.sayHi 메서드는 즉시 실행 함수가 종료된 후 실행된다. 하지만 Stuckyi 생성자 함수와 sayHi 메서드는 이미 종료되어 소멸한 즉시 실행 함수의 지역변수 \_age를 참조 할 수 있는 클로저이다. 하지만 ...
   - 위의 예제에는 문제가 있다. Stuckyi 생성자 함수가 여러 개의 인스턴스를 생성할 경우 다음과 같이 \_age 변수의 상태가 유지되지 않는 다는 것이다.
 
-    ```
+    ```js
     const heeejj = new Stuckyi("희재", 30);
-    heeejj.sayHi();     //안녕, 희재! 넌 이제 30살이야~^^
+    heeejj.sayHi(); //안녕, 희재! 넌 이제 30살이야~^^
 
     const byeongmin = new Stuckyi("병민", 40);
-    byeongmin.sayHi();  //안녕, 병민! 넌 이제 40살이야~^^
+    byeongmin.sayHi(); //안녕, 병민! 넌 이제 40살이야~^^
 
-    heeejj.sayHi();     //안녕, 희재! 넌 이제 40살이야~^^
+    heeejj.sayHi(); //안녕, 희재! 넌 이제 40살이야~^^
     ```
 
     - 이것은 Stuckyi.prototype.sayHi가 단 한 번 생성되는 클로저이기 때문이다.
@@ -269,7 +269,7 @@
 - 해당 문법의 브라우저 지원 범위는 [Private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields) 에서 확인할 수 있다.
 - private 필드의 선두에 #을 붙여 사용한다. private 필드를 참조할 때에도 #을 붙여야 한다.
 
-  ```
+  ```js
   class Stuckyi {
     //private 필드 정의
     #name = "슬기";
@@ -283,12 +283,12 @@
   const me = new Stuckyi("우영");
 
   //private 필드 #name은 클래스 외부에서 참조할 수 없다.
-  console.log(me.#name);      //SyntaxError: Private field '#name' must be declared in an enclosing class
+  console.log(me.#name); //SyntaxError: Private field '#name' must be declared in an enclosing class
   ```
 
 - 다만 접근자 프로퍼티를 통해 간접적으로 접근하는 방법은 유효하다.
 
-  ```
+  ```js
   class Stuckyi {
     //private 필드 정의
     #name = "";
@@ -306,15 +306,15 @@
   }
   const me = new Stuckyi("   희재");
 
-  console.log(me.name);       //희재
+  console.log(me.name); //희재
   ```
 
 - 마지막으로 private 필드는 반드시 클래스 몸체에 정의해야 한다. private 필드를 직접 constructor에 정의하면 에러가 발생한다.
-  ```
+  ```js
   class Stuckyi {
-  constructor(name) {
+    constructor(name) {
       //private 필드는 클래스 몸체에서 정의해야 한다.
-      this.#name = name;  //Private field '#name' must be declared in an enclosing class
+      this.#name = name; //Private field '#name' must be declared in an enclosing class
     }
   }
   ```
