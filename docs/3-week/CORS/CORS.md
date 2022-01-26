@@ -27,7 +27,7 @@ http://localhost와 동일 출처인 url은?
 3. http://127.0.0.1
 4. http://localhost/api/cors
 
-<span style="color:white">답은 2번과 4번이다.</span>
+<span style="color:#d3d3d3">답은 2번과 4번이다.</span>
 <br>
 1번 보기는 http, 즉 Protocol이 다르다. 그렇기 때문에 다른 출처라 보시면 됩니다.
 2번은 포트80이 붙어져 있는데 http기본 port번호가 80이다. 그렇기 때문에 같은 출처라 보시면 됩니다. 위의 보기에서는 생략이 된 상태이다.
