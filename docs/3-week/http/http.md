@@ -188,9 +188,10 @@ UDP는 데이터 전송에 집중이 되있는 설계로 별도의 기능이 없
 
 -   2.0과 3.0의 멀티 플렉싱 비교 사진
 
-    **HTTP 2.0**
+    **HTTP 2.0**<br>
     ![http 2.0](./img/htto2.0.png)
-    **HTTP 3.0**
+
+    **HTTP 3.0**<br>
     ![http 3.0](./img/http3.0.png)
 
     > 출처 : [http3-explained](https://http3-explained.haxx.se/)
