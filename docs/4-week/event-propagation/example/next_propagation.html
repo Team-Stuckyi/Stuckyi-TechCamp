@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #home {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+      }
+      #home li {
+        width: 100px;
+        cursor: pointer;
+      }
+      #home .active {
+        color: aqua;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="home">
+      <li id="conan">Conan</li>
+      <li id="mocha">Mocha</li>
+      <li id="stuckyi">Stuckyi</li>
+    </ul>
+
+    <nav>선택된 가족 : <em class="msg">Conan</em></nav>
+  </body>
+
+  <script>
+    const home = document.getElementById("home");
+    const msg = document.querySelector(".msg");
+
+    //사용자 클릭에 의해 선택된 가족 (li요소)에 active 클래스를 추가하고
+    //그 외의 모든 구성원의 active 클래스를 제거한다.
+    function activate({ target }) {
+      //이벤트를 발생기킨 요소 (target)가 ul#home의 자식 요소가 아니라면 무시한다.
+      if (!target.matches("#home > li")) return;
+
+      [...home.children].forEach((home) => {
+        home.classList.toggle("active", home === target);
+        msg.textContent = target.id;
+      });
+    }
+
+    //이벤트 위임 : 상위 요소 (ul#home)는 하위 요소의 이벤트를 캐치할 수 있다.
+    home.onclick = activate;
+  </script>
+</html>
