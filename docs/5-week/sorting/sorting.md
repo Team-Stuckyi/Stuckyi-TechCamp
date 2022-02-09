@@ -78,19 +78,20 @@ for 문을 반복하여 순서대로 정렬합니다.
 let arr = [5, 2, 6, 4, 1, 3];
 
 const bubble = (arr, size) => {
-    for (let i = size - 1; i > 0; i--) {
-        for (let j = 0; j < i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                let swap = arr[j];
+    for (let i = size - 1; i > 0; i--) { // 오른쪽부터 채워가는 for 문
+        for (let j = 0; j < i; j++) { // 배열을 순회하는 for 문
+            if (arr[j] > arr[j + 1]) { // j 인덱스의 값이 그 오른쪽 값보다 크다면
+                let swap = arr[j]; 
                 arr[j] = arr[j + 1];
                 arr[j + 1] = swap;
-            }
-        }
-    }
+            } // ex) j = 5, j+1 = 2 라면
+	}     // swap 변수에 5를 저장해두고
+    }         // j 자리에 2를, j+1 자리에 5를 옮겨준다
     return arr;
 }
 
 console.log(bubble(arr, arr.length));
+
 
 // [ 1, 2, 3, 4, 5, 6 ]
 ```
@@ -174,24 +175,21 @@ n번의 회전 동안에 요소의 개수만큼 또 순회를 해야하기 때�
 ```jsx
 let arr = [5, 2, 6, 4, 1, 3];
 
-const selection = (arr) =>
-    for (let i = 0; i < arr.length; i++) {
-        let minIndex = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[minIndex] > arr[j]) {
-                minIndex = j;
-            }
-        }
-        if (minIndex !== i) {
-            let swap = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = swap;
-        }
-    }
+const bubble = (arr, size) => {
+    for (let i = size - 1; i > 0; i--) { // 오른쪽부터 채워가는 for 문
+        for (let j = 0; j < i; j++) { // 배열을 순회하는 for 문
+            if (arr[j] > arr[j + 1]) { // j 인덱스의 값이 그 오른쪽 값보다 크다면
+                let swap = arr[j]; 
+                arr[j] = arr[j + 1];
+                arr[j + 1] = swap;
+            } // ex) j = 5, j+1 = 2 라면
+	}     // swap 변수에 5를 저장해두고
+    }         // j 자리에 2를, j+1 자리에 5를 옮겨준다
     return arr;
 }
 
-console.log(selection(arr));
+console.log(bubble(arr, arr.length));
+
 
 // [ 1, 2, 3, 4, 5, 6 ]
 ```
@@ -266,15 +264,15 @@ for 문과 while 문을 반복하며 Swap 시켜줍니다.
 let arr = [5, 2, 6, 4, 1, 3];
 
 const insertion = (arr) => {
-    for (let i = 1; i < arr.length; i++) {
-        let cur = arr[i];
-        let left = i - 1;
+    for (let i = 1; i < arr.length; i++) { //1번째 인덱스부터 순회
+        let cur = arr[i]; // 현재 i 번째 값
+        let left = i - 1; // i 번째의 왼쪽 값
 
-        while (left >= 0 && arr[left] > cur) {
-            arr[left + 1] = arr[left];
+        while (left >= 0 && arr[left] > cur) { // left 값이 클 때 반복
+            arr[left + 1] = arr[left]; // left 값을 하나씩 줄여가며 왼쪽과 비교
             left--;
         }
-				arr[left + 1] = cur;
+	arr[left + 1] = cur; // 교환이 끝나면 맨 앞 인덱스에 cur 값을 넣어줌
     }
     return arr;
 }
@@ -304,7 +302,7 @@ console.log(insertion(arr));
 
 사실 최악, 최고의 경우는 자주 발생하지 않기 때문에
 
-시간복잡도는 Worst 와 Bset 보단 Average 를 보는 것이 좀 더 옳다고 합니다.
+시간복잡도는 Worst 와 Best 보단 Average 를 보는 것이 좀 더 옳다고 합니다.
 
 결론적으론 때에 따라 다를 수 있지만,
 
