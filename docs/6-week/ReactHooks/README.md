@@ -8,9 +8,9 @@ React의 상태관리 기법에 대해 정리하였습니다.
 
 #### Reference
 
-- [리액트의 Hooks 완전정복]: https://velog.io/@velopert/react-hooks
+- [리액트의 Hooks 완전정복](https://velog.io/@velopert/react-hooks)
 
-- [벨로퍼트와 함께하는 모던 리액트]: https://react.vlpt.us/
+- [벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/)
 
   
 
