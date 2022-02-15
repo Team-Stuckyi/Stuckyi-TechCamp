@@ -8,9 +8,9 @@ React의 상태관리 기법에 대해 정리하였습니다.
 
 #### Reference
 
-- [리액트의 Hooks 완전정복](https://velog.io/@velopert/react-hooks)
+- [리액트의 Hooks 완전정복]: https://velog.io/@velopert/react-hooks
 
-- [벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/)
+- [벨로퍼트와 함께하는 모던 리액트]: https://react.vlpt.us/
 
   
 
@@ -67,9 +67,9 @@ export default Counter;
 
 위 Component를 `App.js`에서 호출하면 다음과 같이 실행됩니다.
 
-![](./hooks-study/src/Images/Counter.js.jpg)
+![](./src/Images/Counter.js.jpg)
 
-![](./hooks-study/src/Images/Counter.js-result.jpg)
+![](./src/Images/Counter.js-result.jpg)
 
 +1 버튼을 클릭하게되면 `setValue` 함수를 호출하고 현재 `value`에 1을 더하여 상태를 업데이트,
 
@@ -129,9 +129,9 @@ export default Info;
 
 마찬가지로 `App.js`에서 호출합니다.
 
-![](./hooks-study/src/Images/Info.js.jpg)
+![](./src/Images/Info.js.jpg)
 
-![](./hooks-study/src/Images/Info-result.jpg)
+![](./src/Images/Info-result.jpg)
 
 ## 02. useEffect
 
@@ -175,4 +175,4 @@ export default Info;
 
 마찬가지로 `App.js`에서 수정한 Info-useEffect 컴포넌트를 추가하면 다음과 같은 기능이 추가됩니다.
 
-![](./hooks-study/src/Images/Info.js-useEffect.jpg)
+![](./src/Images/Info.js-useEffect.jpg)
