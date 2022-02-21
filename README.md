@@ -28,6 +28,30 @@
 [TCPIP](./docs/3-week/TCPIP/TCPIP.md)<br>
 [this](./docs/3-week/this/this.md)<br>
 
+### 4week (2022-01-27 ~ 2022-02-03)<br>
+
+[cssFlex](./docs/4-week/cssFlex/cssFlex.md)<br>
+[event-propagation](./docs/4-week/event-propagation/event-propagation.md)<br>
+[Process&Thread](./docs/4-week/Process&Thread/Process&Thread.md)<br>
+[SDLC-TDD](./docs/4-week/SDLC-TDD/SDLC-TDD.md)<br>
+[TypeScript](./docs/4-week/typescript/TypeScript.md)<br>
+
+### 5week (2022-02-04 ~ 2022-02-09)<br>
+
+[redux](./docs/5-week/redux/example/js-redux.md)<br>
+[Scheduler](./docs/5-week/Scheduler/scheduler.md)<br>
+[SEO](./docs/5-week/SEO/SEO.md)<br>
+[sorting](./docs/5-week/sorting/sorting.md)<br>
+[webhook&pm2](./docs/5-week/webhook&pm2/webhook&pm2.md)<br>
+
+### 6week (2022-02-10 ~ 2022-02-16)<br>
+
+[Complexity(big-O notation)](<./docs/6-week/Complexity(big-O%20notation)/Complexity(big-O%20notation).md>)<br>
+[Deadlock](./docs/6-week/Deadlock/Deadlock.md)<br>
+[Hooks](./docs/6-week/Hooks/Hooks.md)<br>
+[ReactHooks](./docs/6-week/ReactHooks/README.md)<br>
+[stric_mode](./docs/6-week/strict_mode/strict_mode.md)<br>
+
 ## 규칙
 
 [rule](./docs/rule.md)
